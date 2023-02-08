@@ -15,7 +15,8 @@ JOIN students ON student_id = students.id
 JOIN cohorts ON cohort_id = cohorts.id
 WHERE cohorts.name = '$1'
 ORDER BY teacher;
-`)
+`, 
+[process.arg[2]])
 .then(res => {
   res.rows.forEach(row => {
     console.log(`${row.cohort}: ${row.teacher}`);
